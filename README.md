@@ -1,11 +1,11 @@
-猫盘 CatDrive - DS120J Synology 
+# 猫盘 CatDrive - DS120J Synology 
 EVERY COMMAND BELOW MUST BE EXECUTED AS ROOT
-# 1 . Fix Info panel DSM 7.x
+## 1 . Fix Info panel DSM 7.x
 ```
 sed -i 's/supportsystempwarning="yes"/supportsystempwarning="no"/g' /etc.defaults/synoinfo.conf
 sed -i 's/supportsystemperature="yes"/supportsystemperature="no"/g' /etc.defaults/synoinfo.conf
 ```
-# 2. Led control
+## 2. Led control
 
 ```sh
 #init the led controler
@@ -45,7 +45,7 @@ i2cset -y -f 0 0x45 0x39 0x40
 i2cset -y -f 0 0x45 0x3c 0x40
 i2cset -y -f 0 0x45 0x3f 0x40
 ```
-## led preset
+### led preset
 
 - Flashing violet
 ```sh
@@ -136,11 +136,11 @@ i2cset -y -f 0 0x45 0x35 255
 i2cset -y -f 0 0x45 0x36 255
 ```
 
-# Time update after restart
+## Time update after restart
 ```sh
 /usr/sbin/ntpdate -u time.google.com
 ```
-# Script 
+## Script 
 Disable high capacity services, enable hibernation on hard disk and LEDs - green blinks when hibernate, blue is always on when woken, and red blinks when network is abnormal
 ```
 mount -o bind /dev/null /var/log/scemd.log || true
